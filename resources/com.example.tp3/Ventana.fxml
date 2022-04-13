@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="615.0" prefWidth="1120.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tp1.InterfazController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="1080.0">
+         <children>
+            <Label layoutX="80.0" layoutY="105.0" text="g:" />
+            <Label layoutX="80.0" layoutY="139.0" text="c:" />
+            <CheckBox fx:id="checkLineal" layoutX="274.0" layoutY="40.0" mnemonicParsing="false" onAction="#checkLineal" text="Lineal" />
+            <CheckBox fx:id="checkMultiplicativo" layoutX="274.0" layoutY="62.0" mnemonicParsing="false" onAction="#checkMultiplicativo" prefHeight="17.0" prefWidth="100.0" text="Multiplicativo" />
+            <CheckBox fx:id="checkLenguaje" layoutX="274.0" layoutY="86.0" mnemonicParsing="false" onAction="#checkLenguaje" text="Generador Lenguaje" />
+            <Button fx:id="botonRealizarPrueba" alignment="CENTER" layoutX="156.0" layoutY="220.0" mnemonicParsing="false" onAction="#botonRealizarPrueba" prefHeight="35.0" prefWidth="100.0" text="Realizar Prueba" />
+            <Button fx:id="botonGenerarDatos" layoutX="26.0" layoutY="220.0" mnemonicParsing="false" onAction="#botonGenerarDatos" prefHeight="35.0" prefWidth="100.0" text="Generar Datos" />
+            <TextField fx:id="constanteG" alignment="CENTER" layoutX="96.0" layoutY="101.0" prefHeight="25.0" prefWidth="35.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="muestras" alignment="CENTER" layoutX="30.0" layoutY="165.0" prefHeight="25.0" prefWidth="102.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField fx:id="intervalos" alignment="CENTER" layoutX="300.0" layoutY="114.0" prefHeight="25.0" prefWidth="52.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="semilla" alignment="CENTER" layoutX="96.0" layoutY="37.0" prefHeight="25.0" prefWidth="35.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="constanteAditiva" alignment="CENTER" layoutX="96.0" layoutY="135.0" prefHeight="25.0" prefWidth="35.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="constanteK" alignment="CENTER" layoutX="96.0" layoutY="71.0" prefHeight="25.0" prefWidth="35.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <Label layoutX="146.0" layoutY="118.0" text="Cantidad de intervalos &quot;K&quot;:" />
+            <Label layoutX="14.0" layoutY="169.0" text="n:" />
+            <Label layoutX="76.0" layoutY="41.0" text="Xo:" />
+            <Label layoutX="80.0" layoutY="75.0" text="k:" />
+            <Label layoutX="145.0" layoutY="4.0" text="INGRESO DE DATOS" />
+            <Label layoutX="771.0" layoutY="6.0" text="RESULTADOS" />
+            <Label layoutX="635.0" layoutY="59.0" text="Varianza:" />
+            <Label layoutX="623.0" layoutY="98.0" text="Desviacion:" />
+            <TextField fx:id="varianza" layoutX="697.0" layoutY="55.0" />
+            <TextField fx:id="desviacion" layoutX="697.0" layoutY="94.0" />
+            <TextField fx:id="resultadoHipotesis" alignment="CENTER" layoutX="697.0" layoutY="184.0" />
+            <Label layoutX="565.0" layoutY="188.0" text="Se rechaza la Hipotesis:" />
+            <Button fx:id="botonGenerarGrafico" layoutX="287.0" layoutY="220.0" mnemonicParsing="false" onAction="#botonGenerarGrafico" prefHeight="35.0" prefWidth="100.0" text="Generar Grafico" />
+            <Label layoutX="156.0" layoutY="148.0" text="Grados de libertad &quot;v&quot;:" />
+            <TextField fx:id="gradosLibertad" alignment="CENTER" layoutX="300.0" layoutY="144.0" prefHeight="25.0" prefWidth="52.0" />
+            <Label layoutX="155.0" layoutY="53.0" text="Tipo de Generador:" />
+            <Label layoutX="156.0" layoutY="181.0" text="Nivel de confianza (%):" />
+            <TextField fx:id="nivelConfianza" alignment="CENTER" layoutX="300.0" layoutY="177.0" prefHeight="25.0" prefWidth="52.0" />
+            <Label layoutX="596.0" layoutY="145.0" text="Confianza:" />
+            <TextField fx:id="confianza" alignment="CENTER" layoutX="659.0" layoutY="141.0" prefHeight="25.0" prefWidth="55.0" />
+            <Label layoutX="747.0" layoutY="145.0" text="Chi-Tabulado:" />
+            <TextField fx:id="chiTabulado" alignment="CENTER" layoutX="829.0" layoutY="141.0" prefHeight="25.0" prefWidth="129.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="471.0" prefWidth="797.0">
+               <children>
+                  <TableView fx:id="tablaGenerador" layoutX="14.0" layoutY="6.0" prefHeight="460.0" prefWidth="425.0">
+                    <columns>
+                      <TableColumn fx:id="iteracion" prefWidth="75.0" text="i" />
+                      <TableColumn fx:id="recta" prefWidth="75.0" text="a * Xi + c" />
+                        <TableColumn fx:id="resto" prefWidth="75.0" text="Xi + 1" />
+                        <TableColumn fx:id="RND" minWidth="200.0" prefWidth="200.0" text="(Xi+1) / (m-1)" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="tablaChiCuadrado" layoutX="472.0" layoutY="6.0" minHeight="-Infinity" prefHeight="460.0" prefWidth="610.0">
+                    <columns>
+                      <TableColumn fx:id="minimoIntervalo" prefWidth="65.0" text="Min" />
+                      <TableColumn fx:id="maximoIntervalo" prefWidth="62.0" text="Max" />
+                        <TableColumn fx:id="marcaClase" prefWidth="116.0" text="Marca de Clase" />
+                        <TableColumn fx:id="frecuenciaObservada" prefWidth="84.0" text="Fo" />
+                        <TableColumn fx:id="frecuenciaEsperada" prefWidth="94.0" text="Fe" />
+                        <TableColumn fx:id="estadisticoPrueba" prefWidth="73.0" text="c" />
+                        <TableColumn fx:id="estadisticoPruebaAcumulado" prefWidth="115.0" text="c (Ac)" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
