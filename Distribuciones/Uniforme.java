@@ -11,6 +11,12 @@ public class Uniforme {
                                    //!FIJARESE SI fe ES ENTERO O DOUBLE
     private ArrayList<Double> cValue; //Valor C (Fe - Fo)^2/Fo
     private ArrayList<Double> cACValue; //Valor C acumulado por cada intervalo
+    private ArrayList<Double> po;
+    private ArrayList<Double> pe;
+    private ArrayList<Double> poAC;
+    private ArrayList<Double> peAC;
+    private ArrayList<Double> absPoACPeAC;
+    private double max;
 
 
     public ArrayList<Double> getSerie() {
@@ -73,7 +79,7 @@ public class Uniforme {
         //valor = (n/k)
         ArrayList<Integer> fe = new ArrayList<Integer>();
         int valor = (this.serie.size())/cantIntervalos; //!SI NO ES INT HAY Q CAMBIAR ESTO A DOUBLE
-        for (int i = 0; i < cantIntervalos; i++) {
+        for (int i = 0; i < this.cantIntervalos; i++) {
             fe.add(valor);
         }
         this.fe = fe;
@@ -105,5 +111,92 @@ public class Uniforme {
             cACValue.add(valor);
         }
         this.cACValue = cACValue;
+    }
+
+    public ArrayList<Double> getPo() {
+        return this.po;
+    }
+
+    public void setPo() {
+        ArrayList<Double> po = new ArrayList<Double>();
+        double valor;
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            valor = this.fo.get(i) / this.serie.size();
+            po.add(valor);
+        }
+        this.po = po;
+    }
+
+    public ArrayList<Double> getPe() {
+        return this.pe;
+    }
+
+    public void setPe() {
+        ArrayList<Double> pe = new ArrayList<Double>();
+        double valor;
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            valor = this.fe.get(i) / this.serie.size();
+            pe.add(valor);
+        }
+        this.pe = pe;
+    }
+
+    public ArrayList<Double> getPoAC() {
+        return this.poAC;
+    }
+
+    public void setPoAC() {
+        ArrayList<Double> poAC = new ArrayList<Double>();
+        double valor = 0;
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            valor += this.po.get(i);
+            poAC.add(valor);
+        }
+        this.poAC = poAC;
+    }
+
+    public ArrayList<Double> getPeAC() {
+        return this.peAC;
+    }
+
+    public void setPeAC() {
+        ArrayList<Double> peAC = new ArrayList<Double>();
+        double valor = 0;
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            valor += this.pe.get(i);
+            peAC.add(valor);
+        }
+        this.peAC = peAC;
+    }
+
+    public ArrayList<Double> getabsPoACPeAC() {
+        return this.absPoACPeAC;
+    }
+
+    public void setabsPoACPeAC() {
+        ArrayList<Double> absPoACPeAC = new ArrayList<Double>();
+        double valor;
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            valor = this.poAC.get(i) - this.peAC.get(i);
+            if (valor < 0) {
+                valor = valor * -1;
+            }
+            absPoACPeAC.add(valor);
+        }
+        this.absPoACPeAC = absPoACPeAC;
+    }
+
+    public double getMax() {
+        return this.max;
+    }
+
+    public void setMax() {
+        double valor = 0;
+        for (int i = 0; i < this.absPoACPeAC.size(); i++) {
+            if (this.absPoACPeAC.get(i) > valor) {
+                valor = this.absPoACPeAC.get(i);
+            }
+        }
+        this.max = valor;
     }
 }
