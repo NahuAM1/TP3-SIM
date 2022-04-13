@@ -1,3 +1,4 @@
+import java.lang.Math;
 import java.util.ArrayList;
 
 public class Uniforme {
@@ -7,7 +8,7 @@ public class Uniforme {
     private int cantIntervalos;
     private ArrayList<ArrayList<Double>> intervalos;
     private ArrayList<Integer> fo; //Frecuencia Observada (Veces que aparece el valor en el intervalo)
-    private ArrayList<Integer> fe; //Frecuencia Esperada (n/k) siendo n el tamaño de la muestra y k la cantidad de intervalos
+    private ArrayList<Double> fe; //Frecuencia Esperada (n/k) siendo n el tamaño de la muestra y k la cantidad de intervalos
                                    //!FIJARESE SI fe ES ENTERO O DOUBLE
     private ArrayList<Double> cValue; //Valor C (Fe - Fo)^2/Fo
     private ArrayList<Double> cACValue; //Valor C acumulado por cada intervalo
@@ -71,14 +72,14 @@ public class Uniforme {
         this.fo = contadores;
     }
 
-    public ArrayList<Integer> getFe() {
+    public ArrayList<Double> getFe() {
         return this.fe;
     }
 
     public void setFe() {
         //valor = (n/k)
-        ArrayList<Integer> fe = new ArrayList<Integer>();
-        int valor = (this.serie.size())/cantIntervalos; //!SI NO ES INT HAY Q CAMBIAR ESTO A DOUBLE
+        ArrayList<Double> fe = new ArrayList<Double>();
+        double valor = (this.serie.size())/cantIntervalos; //!SI NO ES INT HAY Q CAMBIAR ESTO A DOUBLE
         for (int i = 0; i < this.cantIntervalos; i++) {
             fe.add(valor);
         }
@@ -93,7 +94,8 @@ public class Uniforme {
         double valor;
         ArrayList<Double> cValue = new ArrayList<Double>();
         for (int i = 0; i < this.cantIntervalos; i++) {
-            valor = ((this.fe.get(i) - this.fo.get(i))^2)/this.fo.get(i);
+            //valor = ((this.fe.get(i) - this.fo.get(i))^2)/this.fo.get(i);
+            valor = (Math.pow((this.fe.get(i) - this.fo.get(i)), 2))/this.fo.get(i);
             cValue.add(valor);
         }
         this.cValue = cValue;
