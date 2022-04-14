@@ -1,41 +1,56 @@
-import java.util.ArrayList;
+import java.util.ArrayList;abstract 
 
 public class Normal{
 
 	private double media;
 	private double desviacion;
-	private ArrayList<Double> serie;
+	private ArrayList<Double> serieRND;
 	private int cantintervalos;
 	private int N_muestra;
 
-
-public double get media(){return media;}
-public double get desviacion(){return desviacion;}
-public ArrayList<Double> serie(){return serie;}
-public void setSerie(ArrayList<Double> serie) {
-        this.serie = serie;
-    }
- public int getcantIntervalos() {
-        return this.cantintervalos;
-    }
- public void setCantIntervalos(int cantIntervalos) {
-        this.cantIntervalos = cantIntervalos;
-    }
-public ArrayList<Double> getSerie() {
-        return this.serie;
+   public double getMedia() {
+        return media;
     }
 
-public int get N_muestra(){return N_muestra;}
+    public void setMedia(double media) {
+        this.media = media;
+    }
+
+    public double getDesviacion() {
+        return desviacion;
+    }
+
+    public void setDesviacion(double desviacion) {
+        this.desviacion = desviacion;
+    }
+
+    public ArrayList<Double> getSerieRND() {
+        return serieRND;
+    }
+
+    public void setSerieRND(ArrayList<Double> serieRND) {
+        this.serieRND = serieRND;
+    }
+
+    public int getCantintervalos() {
+        return cantintervalos;
+    }
+
+    public void setCantintervalos(int cantintervalos) {
+        this.cantintervalos = cantintervalos;
+    }
+
+    public int getN_muestra() {
+        return N_muestra;
+    }
+
+    public void setN_muestra(int n_muestra) {
+        N_muestra = n_muestra;
+    }
 
 
 
-public void Fe(ArrayList<Double> serie,int cantIntervalos){
-
-
-
-}
-
-
+    
 
 
 
