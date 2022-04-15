@@ -8,24 +8,25 @@ public class Convolucion {
     private double desviacion;
     private ArrayList<Double> serie;
 
-    public Convolucion(double m, double d, double n){
-        this.media = m;
-        this.desviacion = d;
-        this.serie = new ArrayList<Double>();
-        for (int i=0; i< n; i++){
-            double suma = this.generarRNDaux();
-            double z = (((suma - 6) * this.desviacion) + this.media);
-            this.serie.add(z);
-        }
-    }
-
-	public double getMedia() {
+    public double getMedia() {
 		return this.media;
 	}
 
 	public double getDesviacion() {
 		return this.desviacion;
 	}
+
+    public double getMinimo(){
+        ArrayList<Double> lista = this.serie;
+        lista.sort(null);
+        return lista.get(0);
+    }
+
+    public double getMaximo(){
+        ArrayList<Double> lista = this.serie;
+        lista.sort(null);
+        return lista.get(lista.size()-1);
+    }
 
 	public ArrayList<Double> getSerie() {
 		return this.serie;
@@ -37,6 +38,17 @@ public class Convolucion {
             suma += this.serie.get(i);
         }
         return (suma/this.serie.size());
+    }
+
+    public void generarConvolucion(double m, double d, double n){
+        this.media = m;
+        this.desviacion = d;
+        this.serie = new ArrayList<Double>();
+        for (int i=0; i< n; i++){
+            double suma = this.generarRNDaux();
+            double z = (((suma - 6) * this.desviacion) + this.media);
+            this.serie.add(z);
+        }
     }
 
     private Double generarRNDaux(){

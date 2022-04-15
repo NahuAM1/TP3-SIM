@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e356a467-4b53-4ae4-8081-7f8e84f5b3a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Box-Muller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Box-Muller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Convolucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Convolucion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +34,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jcommon-1.0.23.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.16796875" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -65,6 +78,7 @@
       <workItem from="1649809326923" duration="1616000" />
       <workItem from="1650030145349" duration="4698000" />
       <workItem from="1650040298049" duration="96000" />
+      <workItem from="1650057569924" duration="1896000" />
     </task>
     <servers />
   </component>

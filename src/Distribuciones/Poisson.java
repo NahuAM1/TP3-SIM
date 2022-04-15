@@ -53,7 +53,7 @@ public class Poisson {
     }
 
     public void generarSerieDiscreta(int n){
-        for (int i=0; i< n; i++){
+        for (int i=0; i<n; i++){
             double P = 1;
             int X = -1;
             float A = (float) Math.exp(-this.lambda);

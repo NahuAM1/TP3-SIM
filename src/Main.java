@@ -1,4 +1,5 @@
 import Distribuciones.*;
+import Graficos.Graficador;
 
 public class Main {
     
@@ -6,8 +7,10 @@ public class Main {
         System.out.println("Prueba de metodos");
         // Poisson prueba = new Poisson(0, 25.0, 50);
         // System.out.println(prueba.getSerie());
-        Convolucion conv = new Convolucion(11, 0.3, 30);
-        System.out.println(conv.getSerie());
-        System.out.println(conv.getMediaSerie());
+        Convolucion conv = new Convolucion();
+        conv.generarConvolucion(11,2,5000);
+        Graficador grafico = new Graficador(conv.getSerie(), 100, conv.getMinimo(), conv.getMaximo(), "Normal");
+        grafico.pack();
+        grafico.setVisible(true);
     }
 }
