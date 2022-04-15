@@ -50,7 +50,28 @@ public class Normal{
 
 
 
-    
+     public ArrayList<Double> GenerarSecuencia(ArrayList<Double> serieRND, double desviacion, double media){
+
+
+        ArrayList<Double> secuencia = new ArrayList<>();
+
+        for (int i = 0;i < this.serieRND.size();i++) {
+            if (i % 2 == 0) {
+                double rnd1 = serieRND.get(i);
+                double rnd2 = serieRND.get(i+1);
+                double N = Math.sqrt(-2 * Math.log(rnd1)) * Math.cos(2 * Math.PI * rnd2) * desviacion * media;
+                double N2 = Math.sqrt(-2 * Math.log(rnd1)) * Math.sin(2 * Math.PI * rnd2) * desviacion * media;
+                System.out.println("N " + N);
+                System.out.println("N2 " + N2);
+
+
+            }
+        }
+        return secuencia;
+
+
+
+    }
 
 
 
