@@ -1,74 +1,63 @@
 import java.util.ArrayList;
-
+import java.lang.Math;
+import java.util.Collections;
 
 public class Exponencial {
     private ArrayList<Double> serie;
-    private int cantidadIntervalos;
-    private ArrayList<ArrayList<Double>> intervalos;
-    private int frecuenciaObservada;
-    private int frecuenciaEsperada;
-    private double c;
-    private double cAcumulado;
+    private double media;
+    private double lambda;
+    private int n;
+    private Double minimo;
+    private Double maximo;
 
 	public ArrayList<Double> getSerie() {
 		return this.serie;
 	}
 
-	public void setSerie(ArrayList<Double> serie) {
-		this.serie = serie;
+	public double getMedia() {
+		return this.media;
 	}
 
-	public int getCantidadIntervalos() {
-		return this.cantidadIntervalos;
-	}
-
-	public void setCantidadIntervalos(int cantidadIntervalos) {
-		this.cantidadIntervalos = cantidadIntervalos;
-	}
-
-	public ArrayList<ArrayList<Double>> getIntervalos() {
-		return this.intervalos;
-	}
-
-	public void setIntervalos(ArrayList<ArrayList<Double>> intervalos) {
-        this.intervalos = intervalos;
+    public int getN(){
+        return this.n;
     }
+
+	public double getLambda() {
+		return this.lambda;
 	}
 
-	public int getFrecuenciaObservada() {
-		return this.frecuenciaObservada;
+	public Double getMinimo() {
+		return this.minimo;
 	}
 
-	public void setFrecuenciaObservada(int frecuenciaObservada) {
-		this.frecuenciaObservada = frecuenciaObservada;
+	public Double getMaximo() {
+		return this.maximo;
 	}
 
-	public int getFrecuenciaEsperada() {
-		return this.frecuenciaEsperada;
-	}
+    public Exponencial(double media, double lambda, int n) {
+        this.media = media;
+        this.lambda = lambda;
+        if (media == 0 && lambda != 0){
+            this.media = 1/lambda;
+        }
+        else{
+            this.lambda = 1/media;
+        }
+        this.generarSerieDiscreta(n);
+        Collections.sort(this.serie);
+        this.minimo = this.serie.get(0);
+        this.maximo = this.serie.get(this.serie.size() -1);
+        this.n = this.serie.size();
+    }
 
-	public void setFrecuenciaEsperada(int frecuenciaEsperada) {
-		this.frecuenciaEsperada = frecuenciaEsperada;
-	}
+    public void generarSerieDiscreta(int n){
+        for (int i=0; i< n; i++){
+            double X = -1;
+            double rnd = Math.random();
+            double a = Math.log(1 - rnd);
+            X = -media * a;
+            this.serie.add(X);
+        }
+    }
 
-	public double getC() {
-		return this.c;
-	}
-
-	public void setC(double c) {
-		this.c = c;
-	}
-
-	public double getCAcumulado() {
-		return this.cAcumulado;
-	}
-
-	public void setCAcumulado(double cAcumulado) {
-		this.cAcumulado = cAcumulado;
-	}
-
-
-
-
-    
 }
