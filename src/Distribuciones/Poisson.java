@@ -2,6 +2,8 @@ package Distribuciones;
 import java.util.ArrayList;
 import java.lang.Math;
 import java.util.Collections;
+import java.util.Random;
+
 public class Poisson {
     private ArrayList<Integer> serie;
     private double media;
@@ -47,31 +49,33 @@ public class Poisson {
 
     public Poisson(double media, double lambda, int n) {
         this.serie = new ArrayList<Integer>(n);
-        this.generarSerieDiscreta(n);
         this.media = media;
         this.lambda = lambda;
-        if (media == 0){
+        if (media == 0 && lambda != 0){
             this.media = lambda;
         }
         else{
             this.lambda = media;
         }
+        this.generarSerieDiscreta(n);
         Collections.sort(this.serie);
         this.minimo = this.serie.get(0);
-        this.minimo = this.serie.get(this.serie.size() -1);
+        this.maximo = this.serie.get(this.serie.size() -1);
     }
 
     public void generarSerieDiscreta(int n){
-        double P = 1;
-        int X = -1;
-        double A = Math.exp(-this.lambda);
-        System.out.println(A);
-        for (int i=0; i< n ; i++){
-            do {
-                double U = Math.random();
-                P = P * U;
-                X = X + 1;
-            }while (P>=A);
+        for (int i=0; i< n; i++){
+            double P = 1;
+            int X = -1;
+            float A = (float) Math.exp(-this.lambda);
+            double U = Math.random();
+            P *= U;
+            X += 1;
+            while (P >=A){
+                U = Math.random();
+                P *= U;
+                X += 1;
+            }
             this.serie.add(X);
         }
     }
