@@ -32,7 +32,6 @@ public class Uniforme {
             serie.add(valor);
         }
         this.setSerie(serie);
-
     }
 
     public ArrayList<Double> getSerie() {
@@ -112,12 +111,12 @@ public class Uniforme {
     }
 
     public void setCValue() {
-        // valor = (Fe - Fo)^2/Fo
+        // valor = (Fo - Fe)^2/Fe
         double valor;
         ArrayList<Double> cValue = new ArrayList<Double>();
         for (int i = 0; i < this.cantIntervalos; i++) {
-            // valor = ((this.fe.get(i) - this.fo.get(i))^2)/this.fo.get(i);
-            valor = (Math.pow((this.fe.get(i) - this.fo.get(i)), 2)) / this.fo.get(i);
+            valor = Math.pow((this.fo.get(i) - this.fe.get(i)), 2);
+            valor = valor / this.fe.get(i);
             cValue.add(valor);
         }
         this.cValue = cValue;
@@ -145,7 +144,7 @@ public class Uniforme {
         ArrayList<Double> po = new ArrayList<Double>();
         double valor;
         for (int i = 0; i < this.cantIntervalos; i++) {
-            valor = this.fo.get(i) / this.serie.size();
+            valor = (double) this.fo.get(i) / this.serie.size();
             po.add(valor);
         }
         this.po = po;
@@ -159,7 +158,7 @@ public class Uniforme {
         ArrayList<Double> pe = new ArrayList<Double>();
         double valor;
         for (int i = 0; i < this.cantIntervalos; i++) {
-            valor = this.fe.get(i) / this.serie.size();
+            valor = (double) this.fe.get(i) / this.serie.size();
             pe.add(valor);
         }
         this.pe = pe;
