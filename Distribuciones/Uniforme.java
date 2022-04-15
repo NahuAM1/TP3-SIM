@@ -1,17 +1,20 @@
 import java.lang.Math;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Uniforme {
-    //El atributo de la serie lo pasan como parametro
-    //los atributos de los limites lo pasan como atributo
+    // El atributo de la serie lo pasan como parametro
+    // los atributos de los limites lo pasan como atributo
     private ArrayList<Double> serie;
     private int cantIntervalos;
     private ArrayList<ArrayList<Double>> intervalos;
-    private ArrayList<Integer> fo; //Frecuencia Observada (Veces que aparece el valor en el intervalo)
-    private ArrayList<Double> fe; //Frecuencia Esperada (n/k) siendo n el tamaño de la muestra y k la cantidad de intervalos
-                                   //!FIJARESE SI fe ES ENTERO O DOUBLE
-    private ArrayList<Double> cValue; //Valor C (Fe - Fo)^2/Fo
-    private ArrayList<Double> cACValue; //Valor C acumulado por cada intervalo
+    private ArrayList<Integer> fo; // Frecuencia Observada (Veces que aparece el valor en el intervalo)
+    private ArrayList<Double> fe; // Frecuencia Esperada (n/k) siendo n el tamaño de la muestra y k la cantidad de
+                                  // intervalos
+                                  // !FIJARESE SI fe ES ENTERO O DOUBLE
+    private ArrayList<Double> cValue; // Valor C (Fe - Fo)^2/Fo
+    private ArrayList<Double> cACValue; // Valor C acumulado por cada intervalo
     private ArrayList<Double> po;
     private ArrayList<Double> pe;
     private ArrayList<Double> poAC;
@@ -19,6 +22,18 @@ public class Uniforme {
     private ArrayList<Double> absPoACPeAC;
     private double max;
 
+    public void generarFrecuencia(int a, int b, int n) {
+        // ?En este caso se pide el tamaño de la muestra que desea generar
+        double valor;
+        ArrayList<Double> serie = new ArrayList<Double>();
+        for (int i = 0; i < n; i++) {
+            valor = a + (Math.random() * (b - a));
+            valor = this.truncarNumero(valor);
+            serie.add(valor);
+        }
+        this.setSerie(serie);
+
+    }
 
     public ArrayList<Double> getSerie() {
         return this.serie;
@@ -40,16 +55,19 @@ public class Uniforme {
         return this.intervalos;
     }
 
-    public void setIntervalos() {
+    public void setIntervalos(int a) {
+        //Aqui se le pasa como parametro el limite inferior del intervalo para que distribuya
+        //los intervalos desde ese punto
         ArrayList<ArrayList<Double>> intervalos = new ArrayList<ArrayList<Double>>();
-        double ii = 0;
-        double is = 0;
+        double limitInf = a;
+        double limitSup;
         for (int i = 0; i < this.cantIntervalos; i++) {
-            intervalos.add(new ArrayList<Double>());
-            is = (i/this.cantIntervalos) - 0.0001;
-            intervalos.get(i).add(ii);
-            intervalos.get(i).add(is);
-            ii= (i/this.cantIntervalos);
+            limitSup = (double) (i + 1) / this.cantIntervalos;
+            limitSup -= 0.0001;
+            limitSup += a;
+            intervalos.add(new ArrayList<Double>(Arrays.asList(limitInf, limitSup)));
+            limitInf = (double) (i + 1) / this.cantIntervalos;
+            limitInf += a;
         }
         this.intervalos = intervalos;
     }
@@ -60,11 +78,14 @@ public class Uniforme {
 
     public void setFo() {
         ArrayList<Integer> contadores = new ArrayList<Integer>();
+        for (int i = 0; i < this.cantIntervalos; i++) {
+            contadores.add(0);
+        }
         for (int i = 0; i < this.serie.size(); i++) {
             double num = serie.get(i);
             for (int j = 0; j < this.cantIntervalos; j++) {
-                if (this.intervalos.get(j).contains(num)) {
-                    contadores.set(j, contadores.get(j+1));
+                if (num >= this.intervalos.get(j).get(0) && num <= this.intervalos.get(j).get(1)) {
+                    contadores.set(j, contadores.get(j) + 1);
                 }
             }
 
@@ -77,25 +98,26 @@ public class Uniforme {
     }
 
     public void setFe() {
-        //valor = (n/k)
+        // valor = (n/k)
         ArrayList<Double> fe = new ArrayList<Double>();
-        double valor = (this.serie.size())/cantIntervalos; //!SI NO ES INT HAY Q CAMBIAR ESTO A DOUBLE
+        double valor = (this.serie.size()) / cantIntervalos; // !SI NO ES INT HAY Q CAMBIAR ESTO A DOUBLE
         for (int i = 0; i < this.cantIntervalos; i++) {
             fe.add(valor);
         }
         this.fe = fe;
     }
+
     public ArrayList<Double> getCValue() {
         return this.cValue;
     }
 
     public void setCValue() {
-        //valor = (Fe - Fo)^2/Fo
+        // valor = (Fe - Fo)^2/Fo
         double valor;
         ArrayList<Double> cValue = new ArrayList<Double>();
         for (int i = 0; i < this.cantIntervalos; i++) {
-            //valor = ((this.fe.get(i) - this.fo.get(i))^2)/this.fo.get(i);
-            valor = (Math.pow((this.fe.get(i) - this.fo.get(i)), 2))/this.fo.get(i);
+            // valor = ((this.fe.get(i) - this.fo.get(i))^2)/this.fo.get(i);
+            valor = (Math.pow((this.fe.get(i) - this.fo.get(i)), 2)) / this.fo.get(i);
             cValue.add(valor);
         }
         this.cValue = cValue;
@@ -200,5 +222,14 @@ public class Uniforme {
             }
         }
         this.max = valor;
+    }
+
+    public double truncarNumero(double valor) {
+        // Este metodo lo que hace es truncar el valor que se le pasa por parametro a 4
+        // decimales, en caso de querer menos o mas
+        // se le quitan o agregan"#" a la linea de abajo por los que necesite.
+        DecimalFormat df = new DecimalFormat("#.####");
+        String valor_truncado = df.format(valor).replace(",", ".");
+        return Double.parseDouble(valor_truncado);
     }
 }
