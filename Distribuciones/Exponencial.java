@@ -4,8 +4,8 @@ import java.util.Collections;
 
 public class Exponencial {
     private ArrayList<Double> serie;
-    private double media;
-    private double lambda;
+    private Double media;
+    private Double lambda;
     private int n;
     private Double minimo;
     private Double maximo;
@@ -14,7 +14,7 @@ public class Exponencial {
 		return this.serie;
 	}
 
-	public double getMedia() {
+	public Double getMedia() {
 		return this.media;
 	}
 
@@ -22,7 +22,7 @@ public class Exponencial {
         return this.n;
     }
 
-	public double getLambda() {
+	public Double getLambda() {
 		return this.lambda;
 	}
 
@@ -34,7 +34,7 @@ public class Exponencial {
 		return this.maximo;
 	}
 
-    public Exponencial(double media, double lambda, int n) {
+    public Exponencial(Double media, Double lambda, int n) {
         this.media = media;
         this.lambda = lambda;
         if (media == 0 && lambda != 0){
