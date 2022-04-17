@@ -55,8 +55,9 @@ public class Uniforme {
     }
 
     public void setIntervalos(int a) {
-        //Aqui se le pasa como parametro el limite inferior del intervalo para que distribuya
-        //los intervalos desde ese punto
+        // Aqui se le pasa como parametro el limite inferior del intervalo para que
+        // distribuya
+        // los intervalos desde ese punto
         ArrayList<ArrayList<Double>> intervalos = new ArrayList<ArrayList<Double>>();
         double limitInf = a;
         double limitSup;
@@ -201,9 +202,7 @@ public class Uniforme {
         double valor;
         for (int i = 0; i < this.cantIntervalos; i++) {
             valor = this.poAC.get(i) - this.peAC.get(i);
-            if (valor < 0) {
-                valor = valor * -1;
-            }
+            valor = Math.abs(valor);
             absPoACPeAC.add(valor);
         }
         this.absPoACPeAC = absPoACPeAC;
@@ -230,5 +229,86 @@ public class Uniforme {
         DecimalFormat df = new DecimalFormat("#.####");
         String valor_truncado = df.format(valor).replace(",", ".");
         return Double.parseDouble(valor_truncado);
+    }
+
+    public double tablaks(int cantIntervalos, int n, ArrayList<Double> serie) {
+        // Esta metodo lo que va a hacer es generar la tabla de k-s y devolvera el
+        // maximo, es decir el valor final
+
+        ArrayList<ArrayList<Double>> intervalos = new ArrayList<ArrayList<Double>>();
+        ArrayList<Integer> fO = new ArrayList<Integer>();
+        ArrayList<Double> fE = new ArrayList<Double>();
+        ArrayList<Double> pO = new ArrayList<Double>();
+        ArrayList<Double> pE = new ArrayList<Double>();
+        ArrayList<Double> poAC = new ArrayList<Double>();
+        ArrayList<Double> peAC = new ArrayList<Double>();
+        ArrayList<Double> absPoACPeAC = new ArrayList<Double>();
+
+        double limitInf = cantIntervalos;
+        double limitSup;
+        for (int i = 0; i < cantIntervalos; i++) {
+            limitSup = (double) (i + 1) / cantIntervalos;
+            limitSup -= 0.0001;
+            limitSup += cantIntervalos;
+            intervalos.add(new ArrayList<Double>(Arrays.asList(limitInf, limitSup)));
+            limitInf = (double) (i + 1) / cantIntervalos;
+            limitInf += cantIntervalos;
+        }
+
+        for (int i = 0; i < cantIntervalos; i++) {
+            fO.add(0);
+        }
+        for (int i = 0; i < n; i++) {
+            double num = serie.get(i);
+            for (int j = 0; j < cantIntervalos; j++) {
+                if (num >= intervalos.get(j).get(0) && num <= intervalos.get(j).get(1)) {
+                    fO.set(j, fO.get(j) + 1);
+                }
+            }
+
+        }
+
+        double valor = (n) / cantIntervalos;
+        for (int i = 0; i < cantIntervalos; i++) {
+            fE.add(valor);
+        }
+
+        for (int i = 0; i < cantIntervalos; i++) {
+            valor = (double) fO.get(i) / n;
+            pO.add(valor);
+        }
+
+        for (int i = 0; i < cantIntervalos; i++) {
+            valor = (double) fE.get(i) / n;
+            pE.add(valor);
+        }
+
+        valor = 0;
+        for (int i = 0; i < cantIntervalos; i++) {
+            valor += pO.get(i);
+            poAC.add(valor);
+        }
+
+        valor = 0;
+        for (int i = 0; i < cantIntervalos; i++) {
+            valor += pE.get(i);
+            peAC.add(valor);
+        }
+
+        for (int i = 0; i < cantIntervalos; i++) {
+            valor = poAC.get(i) - peAC.get(i);
+            valor = Math.abs(valor);
+            absPoACPeAC.add(valor);
+        }
+
+        double max = 0;
+        for (int i = 0; i < absPoACPeAC.size(); i++) {
+            if (absPoACPeAC.get(i) > valor) {
+                max = absPoACPeAC.get(i);
+            }
+        }
+
+        return max;
+
     }
 }
