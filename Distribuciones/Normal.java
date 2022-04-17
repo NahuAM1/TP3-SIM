@@ -6,6 +6,7 @@ public class Normal{
 	private double desviacion;
 	private int cantintervalos;
 	private int N_muestra;
+       private ArrayList<Double> secuencia;
 
    public double getMedia() {
         return media;
@@ -40,12 +41,12 @@ public class Normal{
         N_muestra = n_muestra;
     }
 
-
+    
 
      public ArrayList<Double> GenerarSecuenciaBoxMuller(double N_muestra, double desviacion, double media){
 
 
-        ArrayList<Double> secuencia = new ArrayList<>();
+        
 
         for (int i = 0;i < this.N_muestra ;i++) {
             
@@ -53,17 +54,35 @@ public class Normal{
                 double rnd2 = Math.random();
                 double N = Math.sqrt(-2 * Math.log(rnd1)) * Math.cos(2 * Math.PI * rnd2) * desviacion + media;
                 double N2 = Math.sqrt(-2 * Math.log(rnd1)) * Math.sin(2 * Math.PI * rnd2) * desviacion + media;
-                secuencia.add(N);
-                secuencia.add(N2);
+                this.secuencia.add(N);
+                this.secuencia.add(N2);
 
 
 
             
         }
         return secuencia;
-
-
-
+        
     }
+        
+
+       public double getMinimo(){
+        ArrayList<Double> lista = this.secuencia;
+        lista.sort(null);
+        return lista.get(0);
+    }
+
+    public double getMaximo(){
+        ArrayList<Double> lista = this.secuencia;
+        lista.sort(null);
+        return lista.get(lista.size()-1);
+    }
+
+       public ArrayList<Double> getSecuencia() {
+              return this.secuencia;
+       }
+
+
+
 
 }
