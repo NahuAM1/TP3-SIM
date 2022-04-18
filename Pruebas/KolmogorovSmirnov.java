@@ -1,4 +1,5 @@
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class KolmogorovSmirnov {
@@ -77,15 +78,23 @@ public class KolmogorovSmirnov {
 
         }
 
-        double max = 0;
-        valor = 0;
-        for (int i = 0; i < absPoACPeAC.size(); i++) {
-            if (absPoACPeAC.get(i) > valor) {
-                max = absPoACPeAC.get(i);
+        for (int i = 0; i < tablaKS.size(); i++) {
+            for (int j = 0; j < tablaKS.get(i).size(); j++) {
+                double numero = tablaKS.get(i).get(j);
+                numero = this.truncarNumero(numero);
+                tablaKS.get(i).set(j, numero);
             }
         }
 
         return tablaKS;
+    }
+
+    public double truncarNumero(double valor){
+        //Este metodo lo que hace es truncar el valor que se le pasa por parametro a 4 decimales, en caso de querer menos o mas
+        // se le quitan o agregan"#" a la linea de abajo por los que necesite.
+        DecimalFormat df = new DecimalFormat("#.####");
+        String valor_truncado = df.format(valor).replace(",",".");
+        return Double.parseDouble(valor_truncado);
     }
 }
 
