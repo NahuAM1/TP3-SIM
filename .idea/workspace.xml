@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e356a467-4b53-4ae4-8081-7f8e84f5b3a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TP3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP3/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Box-Muller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Box-Muller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Convolucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Convolucion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="e356a467-4b53-4ae4-8081-7f8e84f5b3a6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +70,7 @@
       <workItem from="1649809326923" duration="1616000" />
       <workItem from="1650030145349" duration="4698000" />
       <workItem from="1650040298049" duration="96000" />
-      <workItem from="1650057569924" duration="1896000" />
+      <workItem from="1650057569924" duration="2276000" />
     </task>
     <servers />
   </component>
