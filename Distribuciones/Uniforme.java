@@ -54,20 +54,19 @@ public class Uniforme {
         return this.intervalos;
     }
 
-    public void setIntervalos(int a) {
+    public void setIntervalos(int a, int b) {
         // Aqui se le pasa como parametro el limite inferior del intervalo para que
         // distribuya
         // los intervalos desde ese punto
         ArrayList<ArrayList<Double>> intervalos = new ArrayList<ArrayList<Double>>();
         double limitInf = a;
         double limitSup;
+        double dif = (double) (b - a) / this.cantIntervalos;
         for (int i = 0; i < this.cantIntervalos; i++) {
-            limitSup = (double) (i + 1) / this.cantIntervalos;
+            limitSup = limitInf + dif;
             limitSup -= 0.0001;
-            limitSup += a;
             intervalos.add(new ArrayList<Double>(Arrays.asList(limitInf, limitSup)));
-            limitInf = (double) (i + 1) / this.cantIntervalos;
-            limitInf += a;
+            limitInf = limitSup + 0.0001;
         }
         this.intervalos = intervalos;
     }

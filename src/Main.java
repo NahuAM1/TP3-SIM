@@ -25,7 +25,7 @@ public class Main{
      
      //---------------Intervalos----------------------------------------
 
-     uniforme.setIntervalos(limiteInf);
+     uniforme.setIntervalos(limiteInf, limiteSup);
      ArrayList<ArrayList<Double>> intervalos = new ArrayList<ArrayList<Double>>();
      intervalos = uniforme.getIntervalos();
      System.out.println("\nINTERVALOS: ");
@@ -110,12 +110,6 @@ public class Main{
      max = uniforme.getMax();
      System.out.println("\n El maximo es: " + max);
      
-     //---------------Tabla k-s ----------------------------------------
-     double tablaks;
-     tablaks = uniforme.tablaks(5, tamañoN, uniforme.getSerie());
-     System.out.println("\nEl max generado por la prueba de ks es: " + tablaks);
-     System.out.println(uniforme.getClass());
-
      }
 
      
