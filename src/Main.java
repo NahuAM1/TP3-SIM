@@ -6,8 +6,8 @@ public class Main{
      //---------------Parametros----------------------------------------
 
      Uniforme uniforme = new Uniforme();
-     int limiteInf = 0;
-     int limiteSup = 1;
+     int limiteInf = 20;
+     int limiteSup = 45;
      int tamañoN = 30;
      
      //---------------Generacion de la serie----------------------------------------
