@@ -114,6 +114,7 @@ public class Main{
      double tablaks;
      tablaks = uniforme.tablaks(5, tamañoN, uniforme.getSerie());
      System.out.println("\nEl max generado por la prueba de ks es: " + tablaks);
+     System.out.println(uniforme.getClass());
 
      }
 

@@ -305,6 +305,7 @@ public class Uniforme {
         for (int i = 0; i < absPoACPeAC.size(); i++) {
             if (absPoACPeAC.get(i) > valor) {
                 max = absPoACPeAC.get(i);
+                System.out.println("Anashe: " + max);
             }
         }
 
