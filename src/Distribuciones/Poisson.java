@@ -5,15 +5,16 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Poisson {
-    private ArrayList<Integer> serie;
+    private ArrayList<Integer> serie = new ArrayList<Integer>();
     private double media;
     private double lambda;
     private int n;
     private int minimo;
     private int maximo;
 
-	public ArrayList<Integer> getSerie() {
-		return this.serie;
+	public ArrayList<Double> getSerie() {
+        ArrayList<Double> vec = this.transformarSerie();
+		return vec;
 	}
 
 	public double getMedia() {
@@ -67,6 +68,14 @@ public class Poisson {
             }
             this.serie.add(X);
         }
+    }
+
+    private ArrayList<Double> transformarSerie(){
+        ArrayList<Double> vector = new ArrayList<Double>(this.serie.size());
+        for (int i = 0; i < this.serie.size(); i++) {
+            vector.add((double) this.serie.get(i));
+        }
+        return vector;
     }
 
 }

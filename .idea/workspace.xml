@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e356a467-4b53-4ae4-8081-7f8e84f5b3a6" name="Changes" comment="" />
+    <list default="true" id="e356a467-4b53-4ae4-8081-7f8e84f5b3a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP3/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP3/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Distribuciones/Poisson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jcommon-1.0.23.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.16796875" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -71,6 +76,7 @@
       <workItem from="1650030145349" duration="4698000" />
       <workItem from="1650040298049" duration="96000" />
       <workItem from="1650057569924" duration="2276000" />
+      <workItem from="1650249065589" duration="1366000" />
     </task>
     <servers />
   </component>
