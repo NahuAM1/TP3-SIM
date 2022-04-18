@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class KolmogorovSmirnov {
 
-    public ArrayList<ArrayList<Double>> pruebaDeBondad(ArrayList<Double> muestras_generadas, int intervalos,
-            String opcion) {
+    public ArrayList<ArrayList<Double>> pruebaDeBondad(ArrayList<Double> muestras_generadas, int intervalos, String opcion) {
         ChiCuadrado chiC = new ChiCuadrado();
         ArrayList<ArrayList<Double>> tablaChi = new ArrayList<ArrayList<Double>>();
         ArrayList<ArrayList<Double>> tablaKS = new ArrayList<ArrayList<Double>>();
