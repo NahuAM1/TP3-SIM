@@ -104,5 +104,6 @@ public class KolmogorovSmirnov {
             }
         }
 
+        return tablaKS;
     }
 }
