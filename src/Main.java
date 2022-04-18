@@ -16,7 +16,7 @@ public class Main{
      ArrayList<Double> serie = uniforme.getSerie();
      System.out.println("SERIE: ");
      for (int i = 0; i < serie.size(); i++) {
-         System.out.println("Numero " + i + ": " + serie.get(i));
+         System.out.println("\nSerie: " + serie.toString());
      }
      
      //---------------Cantidad de intervalos----------------------------------------
@@ -110,6 +110,7 @@ public class Main{
      max = uniforme.getMax();
      System.out.println("\n El maximo es: " + max);
      
+
      }
 
      
