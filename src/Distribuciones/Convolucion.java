@@ -2,6 +2,8 @@ package Distribuciones;
 
 import java.util.ArrayList;
 import java.lang.Math;
+import java.text.DecimalFormat;
+
 
 public class Convolucion {
     private double media;
@@ -47,6 +49,7 @@ public class Convolucion {
         for (int i=0; i< n; i++){
             double suma = this.generarRNDaux();
             double z = (((suma - 6) * this.desviacion) + this.media);
+            z = this.truncarNumero(z);
             this.serie.add(z);
         }
     }
@@ -58,6 +61,14 @@ public class Convolucion {
             suma += rnd;
         }
         return suma;
+    }
+
+    private Double truncarNumero(double valor) {
+        // Este metodo lo que hace es truncar el valor que se le pasa por parametro a 4 decimales, en caso de querer menos o mas
+        // se le quitan o agregan"#" a la linea de abajo por los que necesite.
+        DecimalFormat df = new DecimalFormat("#.####");
+        String valor_truncado = df.format(valor).replace(",", ".");
+        return Double.parseDouble(valor_truncado);
     }
 
 }
