@@ -6,8 +6,8 @@ public class Main{
      //---------------Parametros----------------------------------------
 
      Uniforme uniforme = new Uniforme();
-     int limiteInf = 20;
-     int limiteSup = 45;
+     int limiteInf = 10;
+     int limiteSup = 20;
      int tamañoN = 30;
      
      //---------------Generacion de la serie----------------------------------------
@@ -19,7 +19,7 @@ public class Main{
      
      //---------------Cantidad de intervalos----------------------------------------
 
-     uniforme.setCantIntervalos(5);
+     uniforme.setCantIntervalos(10);
      
      //---------------Intervalos----------------------------------------
 
